@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/dist.css">
+
+    <title>idempotion</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">IDEMPOTION</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </header>
+
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72"
+                height="57">
+            <h1 class="display-5 fw-bold">Linux server fleet management, reimagined</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    On premise or cloud, it matters not.
+                    Manage your infrastructure consistently from a single simple, intuitive interface.
+                    Track servers anywhere, identify issues faster, retain more uptime.
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="getStartedBtn">Let's get
+                        started</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="toaster" class="toast-container position-fixed bottom-0 end-0 p-3">
+        </div>
+    </div>
+
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <script>
+        const toastTrigger = document.getElementById('getStartedBtn')
+        if (toastTrigger) {
+            toastTrigger.addEventListener('click', () => {
+                const t = document.createElement('div');
+                t.className = ['toast', 'border-0', 'text-dark'].join(' ');
+                t.innerHTML = `
+                    <div class="toast-header">
+                        <strong class="me-auto">Something went wrong</strong>
+                        <small>just now</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <p class="text-small">We are having trouble connecting to the server. If this problem doesn't go away, please reach out.</p>
+                        <button type="button" class="btn btn-primary btn-sm text-small d-block ms-auto">Contact support</button>
+                    </div>`;
+                const toast = new bootstrap.Toast(t, { autohide: false });
+
+                const toaster = document.getElementById('toaster');
+                toaster.append(t);
+
+                toast.show()
+            })
+        }
+    </script>
+</body>
+
+</html>
